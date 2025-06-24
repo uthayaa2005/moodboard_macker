@@ -9,7 +9,7 @@ const Dashboard = () => {
 
   const fetchBoards = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/api/boards', {
+      const res = await axios.get('https://moodboard-macker-1.onrender.com/api/boards', {
         params: { q: query }
       });
       setBoards(res.data);
