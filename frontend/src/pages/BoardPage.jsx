@@ -13,14 +13,16 @@ const BoardPage = () => {
   
   const user = JSON.parse(localStorage.getItem('user'));
 
-  const fetchBoards = async () => {
-    try {
-      const res = await axios.get(API_URL);
-      setBoards(res.data);
-    } catch (err) {
-      alert('Error fetching boards');
-    }
-  };
+ const fetchBoards = async () => {
+  try {
+    const res = await axios.get(API_URL);
+    const userBoards = res.data.filter(board => board.createdBy === user?.email);
+    setBoards(userBoards);
+  } catch (err) {
+    alert('Error fetching boards');
+  }
+};
+
 
   useEffect(() => {
     fetchBoards();
