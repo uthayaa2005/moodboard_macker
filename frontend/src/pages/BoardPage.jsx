@@ -10,7 +10,7 @@ const BoardPage = () => {
   const [editId, setEditId] = useState(null);
 
   const API_URL = 'https://moodboard-macker-1.onrender.com/api/boards';
-  const UPLOAD_URL = 'https://moodboard-macker-1.onrender.com/api/upload';
+
   const user = JSON.parse(localStorage.getItem('user'));
 
   const fetchBoards = async () => {
@@ -26,43 +26,43 @@ const BoardPage = () => {
     fetchBoards();
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      let uploadedImage = imageUrl;
+  try {
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('createdBy', user?.email);
 
-      if (imageFile) {
-        const formData = new FormData();
-        formData.append('image', imageFile);
-        const res = await axios.post(UPLOAD_URL, formData);
-        uploadedImage = res.data.url;
-      }
-
-      const data = {
-        title,
-        description,
-        image: uploadedImage,
-        createdBy: user?.email,
-      };
-
-      if (editId) {
-        await axios.put(`${API_URL}/${editId}`, data);
-        setEditId(null);
-      } else {
-        await axios.post(API_URL, data);
-      }
-
-      setTitle('');
-      setDescription('');
-      setImageUrl('');
-      setImageFile(null);
-      fetchBoards();
-    } catch (err) {
-      alert('Error saving board');
-      console.error(err);
+    if (imageFile) {
+      formData.append('imageFile', imageFile); // Match multer field name
+    } else if (imageUrl) {
+      formData.append('imageUrl', imageUrl); // Cloudinary fallback
     }
-  };
+
+    if (editId) {
+      await axios.put(`${API_URL}/${editId}`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      setEditId(null);
+    } else {
+      await axios.post(API_URL, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+    }
+
+    setTitle('');
+    setDescription('');
+    setImageUrl('');
+    setImageFile(null);
+    fetchBoards();
+  } catch (err) {
+    alert('Error saving board');
+    console.error(err);
+  }
+};
+
 
   const handleEdit = (board) => {
     setTitle(board.title);
