@@ -10,7 +10,6 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-  
     const handleUserLogin = () => {
       const storedUser = localStorage.getItem('user');
       setUser(storedUser ? JSON.parse(storedUser) : null);
@@ -27,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-gray-900 px-6 py-4">
+    <div className="bg-gray-900 px-6 py-4 font-poppins">
       <nav className="bg-black text-white px-6 py-4 shadow-lg flex justify-between items-center rounded-full max-w-7xl mx-auto">
         <div className="text-xl font-bold">
           <Link to="/" className="hover:text-gray-300 transition-colors duration-200">
@@ -45,9 +44,9 @@ const Navbar = () => {
 
           {user ? (
             <>
-             <span className="text-green-400 font-medium">
-       Hi, {user.email.split('@')[0]}
-           </span>
+              <span className="text-green-400 font-medium">
+                Hi, {user.email.split('@')[0]}
+              </span>
               <button
                 onClick={handleLogout}
                 className="bg-red-600 px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 text-sm font-medium"

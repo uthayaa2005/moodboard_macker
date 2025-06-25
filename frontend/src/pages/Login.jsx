@@ -29,9 +29,9 @@ const Login = () => {
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 font-poppins text-white">
     
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold mb-2">Welcome Back 👋</h1>
+        <h1 className="text-3xl font-bold mb-2">Welcome Back</h1>
         <p className="text-lg text-gray-300">
-          Login and enjoy creating your <span className="text-blue-400 font-semibold">Moodboard 🎨</span>
+          Login and enjoy creating your <span className="text-blue-400 font-semibold">Moodboard</span>
         </p>
       </div>
 

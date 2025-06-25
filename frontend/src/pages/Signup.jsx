@@ -26,7 +26,7 @@ const Signup = () => {
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 font-poppins text-white">
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold mb-2">Join the Creative Community ✨</h1>
+        <h1 className="text-3xl font-bold mb-2">Join the Creative Community</h1>
         <p className="text-lg text-gray-300">
           Sign up and start building your <span className="text-green-400 font-semibold">moodboards</span>
         </p>
