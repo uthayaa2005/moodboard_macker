@@ -98,44 +98,45 @@ const Dashboard = () => {
               )}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-10">
-              {boards.map((board) => (
-                <div key={board._id} className="group max-w-xl w-full mx-auto">
-                  <div className="bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300 overflow-hidden border border-gray-700/50 hover:border-gray-600/50 relative">
-                    {board.image ? (
-                      <img
-                        src={board.image}
-                        alt="Board Cover"
-                        className="w-full h-64 object-cover group-hover:opacity-40 transition-opacity duration-300"
-                      />
-                    ) : (
-                      <div className="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-gray-400">
-                        <svg className="w-14 h-14 opacity-60" fill="currentColor" viewBox="0 0 20 20">
-                          <path
-                            fillRule="evenodd"
-                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <span className="ml-2 text-sm font-medium">No Image</span>
-                      </div>
-                    )}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 gap-10">
+  {boards.map((board) => (
+    <div key={board._id} className="group w-full">
+      <div className="bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300 overflow-hidden border border-gray-700/50 hover:border-gray-600/50 relative">
+        {board.image ? (
+          <img
+            src={board.image}
+            alt="Board Cover"
+            className="w-full h-72 object-cover group-hover:opacity-40 transition-opacity duration-300"
+          />
+        ) : (
+          <div className="w-full h-72 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-gray-400">
+            <svg className="w-14 h-14 opacity-60" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span className="ml-2 text-sm font-medium">No Image</span>
+          </div>
+        )}
 
-                    <div className="p-8 z-10 relative">
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-200">
-                        {board.title}
-                      </h3>
-                    </div>
+        <div className="p-8 z-10 relative">
+          <h3 className="text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-200">
+            {board.title}
+          </h3>
+        </div>
 
-                    <div className="absolute inset-0 p-6 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center">
-                      <p className="text-sm text-gray-200 leading-relaxed">
-                        {board.description || 'No description provided'}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="absolute inset-0 p-6 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center">
+          <p className="text-base text-gray-200 leading-relaxed">
+            {board.description || 'No description provided'}
+          </p>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
           </div>
         )}
       </div>
