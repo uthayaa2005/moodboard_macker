@@ -3,10 +3,10 @@ const router = express.Router();
 const boardController = require('../controllers/boardController');
 const upload = require('../middleware/upload');
 
-router.post('/', boardController.createBoard);
+// Only one POST route, with upload + controller
+router.post('/', upload.single('imageFile'), boardController.createBoard);
 router.get('/', boardController.getBoards);
-router.put('/:id', boardController.updateBoard);
+router.put('/:id', upload.single('imageFile'), boardController.updateBoard);
 router.delete('/:id', boardController.deleteBoard);
-router.post('/', upload.single('imageFile'), createBoard);
 
 module.exports = router;
