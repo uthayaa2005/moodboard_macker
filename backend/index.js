@@ -8,7 +8,10 @@ const boardRoutes = require('./routes/board');
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5174", "https://moodboard-macker-1.vercel.app"],
+  credentials: true
+}));
 app.use(express.json());
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected successfully'))
