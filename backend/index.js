@@ -5,11 +5,14 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 const boardRoutes = require('./routes/board');
 
-dotenv.config();
 
+
+dotenv.config();
 const app = express();
+
+
 app.use(cors({
-  origin: ["http://localhost:5174", "https://moodboard-macker-1.vercel.app"],
+  origin: ['http://localhost:5174', 'https://moodboard-macker.vercel.app'],
   credentials: true
 }));
 app.use(express.json());
