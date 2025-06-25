@@ -19,7 +19,6 @@ const Login = () => {
       localStorage.setItem('user', JSON.stringify(user));
       window.dispatchEvent(new Event('user-login'));
 
-      alert("Login Successful ✅");
       navigate('/');
     } catch (err) {
       alert(err.response?.data?.message || 'Login failed');
@@ -28,8 +27,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 font-poppins text-white">
-      
-      {/* ✅ Text outside login box */}
+    
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold mb-2">Welcome Back 👋</h1>
         <p className="text-lg text-gray-300">
@@ -37,7 +35,6 @@ const Login = () => {
         </p>
       </div>
 
-      {/* Login form box */}
       <div className="bg-gray-800 text-white p-8 rounded-2xl shadow-lg w-full max-w-md border border-gray-700">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <form onSubmit={handleLogin} className="space-y-5">

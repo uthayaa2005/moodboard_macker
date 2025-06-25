@@ -1,26 +1,32 @@
 const Board = require('../models/Board');
+const cloudinary = require('../utils/cloudinary');
 
-// CREATE Board
-// controllers/boardController.js
 exports.createBoard = async (req, res) => {
-  const { title, description, image, createdBy } = req.body;
   try {
+    const { title, description, imageUrl, createdBy } = req.body;
+    let image = imageUrl;
+
+    // If file uploaded, get its Cloudinary URL
+    if (req.file && req.file.path) {
+      image = req.file.path;
+    }
+
     const board = await Board.create({ title, description, image, createdBy });
     res.status(201).json(board);
   } catch (err) {
-    console.error("Error creating board:", err); // Add this
+    console.error("Error creating board:", err);
     res.status(500).json({ error: err.message });
   }
 };
 
-// READ All Boards (with optional search)
+
 exports.getBoards = async (req, res) => {
   try {
     const { q } = req.query;
 
     let filter = {};
     if (q) {
-      const regex = new RegExp(q, 'i'); // case-insensitive search
+      const regex = new RegExp(q, 'i'); 
       filter = {
         $or: [
           { title: regex },
@@ -36,16 +42,20 @@ exports.getBoards = async (req, res) => {
   }
 };
 
-/// UPDATE
 exports.updateBoard = async (req, res) => {
-  const { id } = req.params;
-  const { title, description, image, user } = req.body;
-
   try {
+    const { title, description, imageUrl, createdBy } = req.body;
+    const { id } = req.params;
+
+    let image = imageUrl;
+    if (req.file && req.file.path) {
+      image = req.file.path;
+    }
+
     const board = await Board.findById(id);
     if (!board) return res.status(404).json({ error: 'Board not found' });
 
-    if (String(board.user) !== user) {
+    if (board.createdBy !== createdBy) {
       return res.status(403).json({ error: 'Not authorized to update this board' });
     }
 
@@ -60,7 +70,7 @@ exports.updateBoard = async (req, res) => {
   }
 };
 
-// DELETE BOARD
+
 exports.deleteBoard = async (req, res) => {
   const { id } = req.params;
   try {

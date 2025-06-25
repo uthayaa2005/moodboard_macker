@@ -16,7 +16,6 @@ const Signup = () => {
         email,
         password,
       });
-      alert("Signup Successful 🎉");
       console.log(res.data);
       navigate('/');
     } catch (err) {
@@ -26,16 +25,12 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 font-poppins text-white">
-      
-      {/* ✅ Motivational Text Outside Box */}
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold mb-2">Join the Creative Community ✨</h1>
         <p className="text-lg text-gray-300">
           Sign up and start building your <span className="text-green-400 font-semibold">moodboards</span>
         </p>
       </div>
-
-      {/* ✅ Signup Form Card */}
       <div className="bg-gray-800 text-white p-8 rounded-2xl shadow-lg w-full max-w-md border border-gray-700">
         <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
         <form onSubmit={handleSignup} className="space-y-5">

@@ -4,6 +4,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 const boardRoutes = require('./routes/board');
+const upload = require('./middleware/upload');
+const fileUpload = require('express-fileupload')
 
 
 
@@ -28,6 +30,8 @@ app.get('/', (req, res) => {
 }); 
 app.use('/api/auth', authRoutes);
 app.use('/api/boards', boardRoutes);
+app.use('/api/upload', uploadRoute);
+app.use(fileUpload({ useTempFiles: true }));
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

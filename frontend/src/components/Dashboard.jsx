@@ -14,7 +14,7 @@ const Dashboard = () => {
       });
       setBoards(res.data);
     } catch (err) {
-      alert('Failed to load boards');
+      console.error('Error fetching boards:', err);
     }
   };
 
@@ -30,7 +30,6 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white font-poppins">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-5xl font-bold mb-3 tracking-tight">
             Your Moodboards
@@ -39,8 +38,6 @@ const Dashboard = () => {
             Discover and organize your creative inspiration
           </p>
         </div>
-
-        {/* Search */}
       <form onSubmit={handleSearch} className="flex justify-center mb-12">
   <div className="flex items-center gap-3 w-full max-w-2xl">
     <div className="relative flex-1">
@@ -63,8 +60,6 @@ const Dashboard = () => {
     </button>
   </div>
 </form>
-
-        {/* Boards */}
         {boards.length === 0 ? (
           <div className="text-center py-16">
             <div className="bg-gray-800/50 rounded-3xl p-12 max-w-md mx-auto border border-gray-700/50">
@@ -115,7 +110,6 @@ const Dashboard = () => {
       </h3>
     </div>
 
-    {/* Hover-only description overlay */}
     <div className="absolute inset-0 p-6 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center">
       <p className="text-sm text-gray-200 leading-relaxed">
         {board.description || 'No description provided'}
