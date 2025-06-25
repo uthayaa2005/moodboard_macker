@@ -10,7 +10,7 @@ const BoardPage = () => {
   const [editId, setEditId] = useState(null);
 
   const API_URL = 'https://moodboard-macker-1.onrender.com/api/boards';
-
+  
   const user = JSON.parse(localStorage.getItem('user'));
 
   const fetchBoards = async () => {
