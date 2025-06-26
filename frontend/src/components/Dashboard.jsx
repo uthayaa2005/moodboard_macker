@@ -75,7 +75,7 @@ const Dashboard = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-10">
               {boards.map((board) => (
                 <div key={board._id} className="group max-w-xl w-full mx-auto">
-                  <div className="bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transform  transition-all duration-300 overflow-hidden border border-gray-700/50 hover:border-gray-600/50 relative">
+                  <div className="bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300 overflow-hidden border border-gray-700/50 hover:border-gray-600/50 relative">
                     {board.image ? (
                       <img
                         src={board.image}
