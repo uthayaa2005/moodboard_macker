@@ -27,7 +27,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white font-poppins">
+    <div className="min-h-screen bg-white text-white font-poppins">
       <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="text-center mb-12">
           <h2 className="text-5xl font-bold mb-3 tracking-tight">Your Moodboards</h2>
@@ -91,13 +91,7 @@ const Dashboard = () => {
                       />
                     ) : (
                       <div className="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center text-gray-400">
-                        <svg className="w-14 h-14 opacity-60" fill="currentColor" viewBox="0 0 20 20">
-                          <path
-                            fillRule="evenodd"
-                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        
                         <span className="ml-2 text-sm font-medium">No Image</span>
                       </div>
                     )}
