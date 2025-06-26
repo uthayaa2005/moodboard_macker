@@ -29,7 +29,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white font-poppins">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="text-center mb-12">
+      <div className="text-center mb-12">
           <h2 className="text-5xl font-bold mb-3 tracking-tight">Your Moodboards</h2>
           <p className="text-lg text-gray-400 font-medium">
             Discover and organize your creative inspiration
@@ -37,21 +37,8 @@ const Dashboard = () => {
         </div>
 
         <form onSubmit={handleSearch} className="flex justify-center mb-12">
-          <div className="flex items-center gap-3 w-full max-w-2xl">
+      <div className="flex items-center gap-3 w-full max-w-2xl">
             <div className="relative flex-1">
-              <svg
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
               <input
                 type="text"
                 placeholder="Search by title or description..."
@@ -72,16 +59,10 @@ const Dashboard = () => {
         {boards.length === 0 ? (
           <div className="text-center py-16">
             <div className="bg-gray-800/50 rounded-3xl p-12 max-w-md mx-auto border border-gray-700/50">
-              <svg className="w-16 h-16 mx-auto mb-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <h3 className="text-2xl font-bold mb-3">No boards found</h3>
+            
+              <h3 className="text-2xl font-bold mb-3">Loading...</h3>
               <p className="text-gray-400">
-                Create your first moodboard to get started on your creative journey!
+                create a own board...
               </p>
             </div>
           </div>

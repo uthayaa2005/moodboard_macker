@@ -35,15 +35,13 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Hamburger Toggle Button */}
+    
         <button
           className="md:hidden text-white text-2xl focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? '✕' : '☰'}
         </button>
-
-        {/* Navigation Links */}
         <div
           className={`${
             menuOpen ? 'flex' : 'hidden'

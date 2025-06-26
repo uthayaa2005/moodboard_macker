@@ -11,7 +11,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: 'moodboards', // Optional folder name in Cloudinary
+    folder: 'moodboards',
     allowed_formats: ['jpg', 'jpeg', 'png'],
   },
 });

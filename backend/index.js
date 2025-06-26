@@ -5,18 +5,17 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 const boardRoutes = require('./routes/board');
 const fileUpload = require('express-fileupload')
-
-
-
-dotenv.config();
 const app = express();
 
 
 app.use(cors({
-  origin: ['http://localhost:5174', 'https://moodboard-macker.vercel.app'],
+  origin: ['http://localhost:5173/', 'https://moodboard-macker.vercel.app'],
   credentials: true
 }));
+
+
 app.use(express.json());
+dotenv.config();
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected successfully'))
   .catch((err) => {

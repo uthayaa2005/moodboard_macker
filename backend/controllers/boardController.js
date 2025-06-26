@@ -5,8 +5,6 @@ exports.createBoard = async (req, res) => {
   try {
     const { title, description, imageUrl, createdBy } = req.body;
     let image = imageUrl;
-
-    // If file uploaded, get its Cloudinary URL
     if (req.file && req.file.path) {
       image = req.file.path;
     }

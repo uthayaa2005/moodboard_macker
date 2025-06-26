@@ -24,7 +24,7 @@ const BoardPage = () => {
 };
 
 
-  useEffect(() => {
+  useEffect(() => { 
     fetchBoards();
   }, []);
 
@@ -38,9 +38,9 @@ const handleSubmit = async (e) => {
     formData.append('createdBy', user?.email);
 
     if (imageFile) {
-      formData.append('imageFile', imageFile); // Match multer field name
+      formData.append('imageFile', imageFile); 
     } else if (imageUrl) {
-      formData.append('imageUrl', imageUrl); // Cloudinary fallback
+      formData.append('imageUrl', imageUrl);
     }
 
     if (editId) {
