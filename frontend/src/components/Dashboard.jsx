@@ -32,7 +32,7 @@ const Dashboard = () => {
       <div className="text-center mb-12">
           <h2 className="text-5xl font-bold mb-3 tracking-tight">Your Moodboards</h2>
           <p className="text-lg text-gray-400 font-medium">
-            Discover and organize your creative inspiration
+            Discover and organize your own boards
           </p>
         </div>
 
@@ -68,7 +68,7 @@ const Dashboard = () => {
           </div>
         ) : (
 
-          
+
           <div>
         
 
