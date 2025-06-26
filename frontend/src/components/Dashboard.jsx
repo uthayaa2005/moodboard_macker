@@ -27,7 +27,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-white font-poppins">
+    <div className="min-h-screen bg-gray-900 text-white font-poppins">
       <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="text-center mb-12">
           <h2 className="text-5xl font-bold mb-3 tracking-tight">Your Moodboards</h2>
